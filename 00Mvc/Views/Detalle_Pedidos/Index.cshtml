@@ -35,9 +35,10 @@
             @Html.DisplayFor(modelItem => item.Proyecto.Fecha_Final)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            @Html.ActionLink("Detalles de los Pedidos", "Index", "Pedidos", new { id = item.id_Pedido }, null)
         </td>
     </tr>
 }

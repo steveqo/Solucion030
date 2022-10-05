@@ -15,12 +15,41 @@ namespace _00Mvc.Controllers
     {
         private VisualWorldsDbContext db = new VisualWorldsDbContext();
 
-        // GET: Proyectos
-        public ActionResult Index()
+        // GET: Producto
+        public ActionResult Index(int? id, bool? categoria)
         {
-            var proyecto = db.Proyecto.Include(p => p.Alumno).Include(p => p.Tallerista_Categoria_Precio_Sesion);
-            return View(proyecto.ToList());
+            var productos = db.Proyecto.Include(p => p.Tallerista_Categoria_Precio_Sesion).Include(p => p.Alumno);
+            //Si el método Index recibe un parámetro id != null y > 0
+            if (id != null && id > 0)
+            {
+                if (categoria != null)
+                {
+                    if (categoria == true)
+                    {
+                        productos = productos.Where(x => x.id_Alumno == id);
+                        if (productos != null && productos.Count() > 0)
+                        {
+                            ViewBag.Message = "Productos de la Categoría: " + productos.FirstOrDefault().Alumno.Nombre;
+                        }
+                    }
+                    else
+                    {
+                        productos = productos.Where(x => x.Precio_Proyecto == id);
+                        if (productos != null && productos.Count() > 0)
+                        {
+                            ViewBag.Message = "Productos del Proveedor: " + productos.FirstOrDefault().Alumno.Nombre
+                                            + "con domicilio en: " + productos.FirstOrDefault().Alumno.Apellido + " "
+                                            + productos.FirstOrDefault().Alumno.Login + " "
+                                            + productos.FirstOrDefault().Alumno.Pasword + " "
+                                            + productos.FirstOrDefault().Alumno.Proyecto + " ";
+                        }
+                    }
+                }
+            }
+            return View(productos.ToList());
         }
+
+
 
         // GET: Proyectos/Details/5
         public ActionResult Details(int? id)
