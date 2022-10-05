@@ -35,9 +35,10 @@
             @Html.DisplayFor(modelItem => item.Tallerista.Nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            @Html.ActionLink("Proyectos de este precio", "Index", "Proyectos", new { id = item.id, alumno = false }, null)
         </td>
     </tr>
 }

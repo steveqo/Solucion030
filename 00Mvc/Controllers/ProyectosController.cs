@@ -16,37 +16,33 @@ namespace _00Mvc.Controllers
         private VisualWorldsDbContext db = new VisualWorldsDbContext();
 
         // GET: Producto
-        public ActionResult Index(int? id, bool? categoria)
+        public ActionResult Index(int? id, bool? alumno)
         {
-            var productos = db.Proyecto.Include(p => p.Tallerista_Categoria_Precio_Sesion).Include(p => p.Alumno);
+            var proyectos = db.Proyecto.Include(p => p.Tallerista_Categoria_Precio_Sesion).Include(p => p.Alumno);
             //Si el método Index recibe un parámetro id != null y > 0
             if (id != null && id > 0)
             {
-                if (categoria != null)
+                if (alumno != null)
                 {
-                    if (categoria == true)
+                    if (alumno == true)
                     {
-                        productos = productos.Where(x => x.id_Alumno == id);
-                        if (productos != null && productos.Count() > 0)
+                        proyectos = proyectos.Where(x => x.id_Alumno == id);
+                        if (proyectos != null && proyectos.Count() > 0)
                         {
-                            ViewBag.Message = "Productos de la Categoría: " + productos.FirstOrDefault().Alumno.Nombre;
+                            ViewBag.Message = "Productos de la Categoría: " + proyectos.FirstOrDefault().Alumno.Nombre;
                         }
                     }
                     else
                     {
-                        productos = productos.Where(x => x.Precio_Proyecto == id);
-                        if (productos != null && productos.Count() > 0)
+                        proyectos = proyectos.Where(x => x.Precio_Proyecto == id);
+                        if (proyectos != null && proyectos.Count() > 0)
                         {
-                            ViewBag.Message = "Productos del Proveedor: " + productos.FirstOrDefault().Alumno.Nombre
-                                            + "con domicilio en: " + productos.FirstOrDefault().Alumno.Apellido + " "
-                                            + productos.FirstOrDefault().Alumno.Login + " "
-                                            + productos.FirstOrDefault().Alumno.Pasword + " "
-                                            + productos.FirstOrDefault().Alumno.Proyecto + " ";
+               
                         }
                     }
                 }
             }
-            return View(productos.ToList());
+            return View(proyectos.ToList());
         }
 
 
