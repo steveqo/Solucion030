@@ -1,0 +1,42 @@
+﻿@model _04Data.Data.Tallerista_Categoria_Precio_Sesion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tallerista_Categoria_Precio_Sesion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio_sesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio_sesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Tecnica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Tecnica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tallerista.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tallerista.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

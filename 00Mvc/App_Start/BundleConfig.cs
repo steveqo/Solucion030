@@ -23,7 +23,6 @@ namespace _00Mvc
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/estilos.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }

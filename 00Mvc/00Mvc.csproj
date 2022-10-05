@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{66148165-F95A-44EC-ABB0-C3D1966A75A4}</ProjectGuid>
+    <ProjectGuid>{404E4ED3-2A60-42BE-8141-DAC8CA0A8BD0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -127,7 +127,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlumnosController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\Detalle_PedidosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\ProyectosController.cs" />
+    <Compile Include="Controllers\TalleristasController.cs" />
+    <Compile Include="Controllers\Talleristas_Categorias_Precios_SesionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,14 +146,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\estilos.css" />
-    <Content Include="Content\Images\animacion_cover.webm" />
-    <Content Include="Content\Images\animacion_media.mp4" />
-    <Content Include="Content\Images\fire-dynamic-color.png" />
-    <Content Include="Content\Images\heart_notify.png" />
-    <Content Include="Content\Images\logo-magtimus-small-v2-png.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\images\close-icon.svg" />
+    <Content Include="fonts\images\favicon.ico" />
+    <Content Include="fonts\images\header-bg.jpg" />
+    <Content Include="fonts\images\map-image.png" />
+    <Content Include="fonts\images\navbar-logo.svg" />
+    <Content Include="fonts\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -161,7 +169,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -176,6 +184,46 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Alumnos\Create.cshtml" />
+    <Content Include="Views\Alumnos\Delete.cshtml" />
+    <Content Include="Views\Alumnos\Details.cshtml" />
+    <Content Include="Views\Alumnos\Edit.cshtml" />
+    <Content Include="Views\Alumnos\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Detalle_Pedidos\Create.cshtml" />
+    <Content Include="Views\Detalle_Pedidos\Delete.cshtml" />
+    <Content Include="Views\Detalle_Pedidos\Details.cshtml" />
+    <Content Include="Views\Detalle_Pedidos\Edit.cshtml" />
+    <Content Include="Views\Detalle_Pedidos\Index.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\Proyectos\Create.cshtml" />
+    <Content Include="Views\Proyectos\Delete.cshtml" />
+    <Content Include="Views\Proyectos\Details.cshtml" />
+    <Content Include="Views\Proyectos\Edit.cshtml" />
+    <Content Include="Views\Proyectos\Index.cshtml" />
+    <Content Include="Views\Talleristas\Create.cshtml" />
+    <Content Include="Views\Talleristas\Delete.cshtml" />
+    <Content Include="Views\Talleristas\Details.cshtml" />
+    <Content Include="Views\Talleristas\Edit.cshtml" />
+    <Content Include="Views\Talleristas\Index.cshtml" />
+    <Content Include="Views\Talleristas_Categorias_Precios_Sesiones\Create.cshtml" />
+    <Content Include="Views\Talleristas_Categorias_Precios_Sesiones\Delete.cshtml" />
+    <Content Include="Views\Talleristas_Categorias_Precios_Sesiones\Details.cshtml" />
+    <Content Include="Views\Talleristas_Categorias_Precios_Sesiones\Edit.cshtml" />
+    <Content Include="Views\Talleristas_Categorias_Precios_Sesiones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -220,7 +268,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62469</DevelopmentServerPort>
+          <DevelopmentServerPort>52944</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44337/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
